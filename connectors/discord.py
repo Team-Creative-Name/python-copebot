@@ -44,7 +44,7 @@ class DiscordClient(discord.Client):
             % DISCORD_CLIENT_ID)
 
     async def on_message(self, message: discord.Message):
-        rand = random.randint(1,30)
+        rand = int(random.randint(1, 30))
 
         # Prevent feedback loop
         if str(message.author) == DISCORD_USERNAME:
