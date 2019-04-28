@@ -26,6 +26,12 @@ DISCORD_LEARN_FROM_DIRECT_MESSAGE = False
 # This should be set to a string containing a username like "SomeGuy#1234"
 DISCORD_LEARN_FROM_USER = None
 
+# Post random messages in the following servers
+DISCORD_RANDOM_SERVER = []
+
+# Ignore the following users
+DISCORD_IGNORE_USER = []
+
 # --- Technical Stuff Section ---
 # -------------------------------
 
