@@ -88,7 +88,7 @@ class DiscordClient(discord.Client):
                 return
 
         # Random Reply
-        if message.guild is not None and int(message.guild) in DISCORD_RANDOM_SERVER_ID and rand == 3:
+        if message.guild is not None and message.guild.id in DISCORD_RANDOM_SERVER_ID and rand == 3:
             self._logger.debug("Message: %s" % filtered_content)
             self._worker.send(ConnectorRecvMessage(filtered_content))
             reply = self._worker.recv()
