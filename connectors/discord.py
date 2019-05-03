@@ -19,6 +19,11 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
         if reply is None:
             return None
 
+        if DISCORD_REMOVE_USERNAME:
+            # Remove bot's username
+            reply = re.sub('Copebot Python Edition', '', reply)
+            reply = reply.strip()
+
         if DISCORD_REMOVE_URL:
             # Remove URLs
             reply = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', reply)
