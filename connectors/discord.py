@@ -20,8 +20,8 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
             return None
 
         if DISCORD_REMOVE_USERNAME:
-            # Remove bot's username
-            reply = re.sub('Copebot Python Edition', '', reply)
+            # Remove bot's username and unwanted words, thanks a lot LeCrankyCoot
+            reply = re.sub(r'(Copebot Python Edition)|rape|nigwad', '', reply)
             reply = reply.strip()
 
         if DISCORD_REMOVE_URL:
