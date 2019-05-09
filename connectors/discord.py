@@ -22,7 +22,7 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
         if DISCORD_REMOVE_PHRASE:
             # Remove bot's username and unwanted words, thanks a lot LeCrankyCoot
             reply = re.sub(DISCORD_BLOCK_PHRASE, '', reply, flags=re.IGNORECASE)
-            if message.guild.id in DISCORD_SERVER_PRIVACY:
+            if (message.guild.id in DISCORD_SERVER_PRIVACY) or (message.guild is None):
                 reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
             reply = reply.strip()
 
