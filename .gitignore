@@ -97,3 +97,4 @@ config/*.py
 db/*.db
 lines.db-journal
 /private/
+weights/*
