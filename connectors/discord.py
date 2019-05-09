@@ -19,9 +19,11 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
         if reply is None:
             return None
 
-        if DISCORD_REMOVE_USERNAME:
+        if DISCORD_REMOVE_PHRASE:
             # Remove bot's username and unwanted words, thanks a lot LeCrankyCoot
-            reply = re.sub(DISCORD_BLOCK_PHRASE, '', reply, 0, flags=re.IGNORECASE)
+            reply = re.sub(DISCORD_BLOCK_PHRASE, '', reply, flags=re.IGNORECASE)
+            if message.guild.id in DISCORD_SERVER_PRIVACY:
+                reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
             reply = reply.strip()
 
         if DISCORD_REMOVE_URL:
