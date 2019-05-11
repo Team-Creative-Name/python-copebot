@@ -97,5 +97,3 @@ config/*.py
 db/*.db
 lines.db-journal
 /private/
-weights/markov.json.zlib
-weights/structure-model.h5
