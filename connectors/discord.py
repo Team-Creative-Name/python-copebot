@@ -21,12 +21,14 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
 
         if DISCORD_REMOVE_USERNAME:
             # Remove bot's username and unwanted words, thanks a lot LeCrankyCoot
-            reply = re.sub(DISCORD_BLOCK_PHRASE, '', reply)
+            reply = re.sub(DISCORD_BLOCK_PHRASE, '', reply, flags=re.IGNORECASE)
+            reply = re.sub(r' +', ' ', reply)
             reply = reply.strip()
 
         if DISCORD_REMOVE_URL:
             # Remove URLs
             reply = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', reply)
+            reply = re.sub(r' +', ' ', reply)
             reply = reply.strip()
 
         if len(reply) > 0:
@@ -87,6 +89,12 @@ class DiscordClient(discord.Client):
                 self._logger.debug("Message: %s" % filtered_content)
                 self._worker.send(ConnectorRecvMessage(filtered_content))
                 reply = self._worker.recv()
+                if (message.guild.id in DISCORD_SERVER_PRIVACY) and DISCORD_REMOVE_PHRASE:
+                    reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
+                    reply = re.sub(r' +', ' ', reply)
+                    reply = reply.strip()
+                if reply.isspace() or reply == '':
+                    reply = "Huh?"
                 self._logger.debug("Reply: %s" % reply)
                 if reply is not None:
                     await message.channel.send(reply)
@@ -97,6 +105,12 @@ class DiscordClient(discord.Client):
             self._logger.debug("Message: %s" % filtered_content)
             self._worker.send(ConnectorRecvMessage(filtered_content))
             reply = self._worker.recv()
+            if (message.guild.id in DISCORD_SERVER_PRIVACY) and DISCORD_REMOVE_PHRASE:
+                reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
+                reply = re.sub(r' +', ' ', reply)
+                reply = reply.strip()
+            if reply.isspace() or reply == '':
+                reply = "Huh?"
             self._logger.debug("Reply: %s" % reply)
             if reply is not None:
                 await message.channel.send(reply)
@@ -107,6 +121,12 @@ class DiscordClient(discord.Client):
             self._logger.debug("Private Message: %s" % filtered_content)
             self._worker.send(ConnectorRecvMessage(filtered_content))
             reply = self._worker.recv()
+            if DISCORD_REMOVE_PHRASE:
+                reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
+                reply = re.sub(r' +', ' ', reply)
+                reply = reply.strip()
+            if reply.isspace() or reply == '':
+                reply = "Huh?"
             self._logger.debug("Reply: %s" % reply)
             if reply is not None:
                 await message.channel.send(reply)
