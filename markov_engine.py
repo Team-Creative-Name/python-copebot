@@ -530,7 +530,7 @@ class MarkovFilters(object):
             filtered = filtered.replace(url, url_token)
 
         filtered = re.sub(r'(&amp;)', '', filtered)
-        filtered = re.sub(r'[,:;\'`\-_“^"<>(){}/\\*]', '', filtered)
+        filtered = re.sub(r'[,;`\-_“^"(){}/\\*]', '', filtered)
 
         # Swamp URLs back for token
         for url in urls:

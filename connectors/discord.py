@@ -51,7 +51,6 @@ class DiscordClient(discord.Client):
             % DISCORD_CLIENT_ID)
 
     async def on_message(self, message: discord.Message):
-        rand = int(random.randint(1, 30))
 
         # Prevent feedback loop
         if str(message.author) == DISCORD_USERNAME:
@@ -101,20 +100,22 @@ class DiscordClient(discord.Client):
                 return
 
         # Random Reply
-        if message.guild is not None and message.guild.id in DISCORD_RANDOM_SERVER_ID and rand == 3:
-            self._logger.debug("Message: %s" % filtered_content)
-            self._worker.send(ConnectorRecvMessage(filtered_content))
-            reply = self._worker.recv()
-            if (message.guild.id in DISCORD_SERVER_PRIVACY) and DISCORD_REMOVE_PHRASE:
-                reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
-                reply = re.sub(r' +', ' ', reply)
-                reply = reply.strip()
-            if reply.isspace() or reply == '':
-                reply = "Huh?"
-            self._logger.debug("Reply: %s" % reply)
-            if reply is not None:
-                await message.channel.send(reply)
-            return
+        if message.guild is not None and message.guild.id in DISCORD_RANDOM_SERVER_ID:
+            rand = int(random.randint(1, 30))
+            if rand == 3:
+                self._logger.debug("Message: %s" % filtered_content)
+                self._worker.send(ConnectorRecvMessage(filtered_content))
+                reply = self._worker.recv()
+                if (message.guild.id in DISCORD_SERVER_PRIVACY) and DISCORD_REMOVE_PHRASE:
+                    reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
+                    reply = re.sub(r' +', ' ', reply)
+                    reply = reply.strip()
+                if reply.isspace() or reply == '':
+                    reply = "Huh?"
+                self._logger.debug("Reply: %s" % reply)
+                if reply is not None:
+                    await message.channel.send(reply)
+                return
 
         # Reply to private messages
         if message.guild is None:
