@@ -115,7 +115,7 @@ class DiscordClient(discord.Client):
                 self._logger.debug("Reply: %s" % reply)
                 if reply is not None:
                     await message.channel.send(reply)
-                return
+            return
 
         # Reply to private messages
         if message.guild is None:
