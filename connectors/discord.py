@@ -43,16 +43,14 @@ class DiscordClient(discord.Client):
         self._worker = worker
         self._ready = False
         self._logger = logging.getLogger(self.__class__.__name__)
-        self._game = discord.Game("does this work")
-        await self.change_presence(status=discord.Status.dnd, activity=self._game)
 
     async def on_ready(self):
         self._ready = True
-        self._game = discord.Game("Copebot's Bizarre Adventure")
+        game = discord.Game("Copebot's Bizarre Adventure")
         self._logger.info(
             "Server join URL: https://discordapp.com/oauth2/authorize?&client_id=%d&scope=bot&permissions=0"
             % DISCORD_CLIENT_ID)
-        await self.change_presence(status=discord.Status.online, activity=self._game)
+        await self.change_presence(status=discord.Status.online, activity=game)
 
     async def on_message(self, message: discord.Message):
 
