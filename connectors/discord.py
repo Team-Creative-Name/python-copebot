@@ -39,18 +39,16 @@ class DiscordReplyGenerator(ConnectorReplyGenerator):
 
 class DiscordClient(discord.Client):
     def __init__(self, worker: 'DiscordWorker'):
-        discord.Client.__init__(self)
+        discord.Client.__init__(self, activity=discord.Game(":3 on the grocery"))
         self._worker = worker
         self._ready = False
         self._logger = logging.getLogger(self.__class__.__name__)
 
     async def on_ready(self):
         self._ready = True
-        game = discord.Game("Copebot's Bizarre Adventure")
         self._logger.info(
             "Server join URL: https://discordapp.com/oauth2/authorize?&client_id=%d&scope=bot&permissions=0"
             % DISCORD_CLIENT_ID)
-        await self.change_presence(status=discord.Status.online, activity=game)
 
     async def on_message(self, message: discord.Message):
 
@@ -90,12 +88,12 @@ class DiscordClient(discord.Client):
                 self._logger.debug("Message: %s" % filtered_content)
                 self._worker.send(ConnectorRecvMessage(filtered_content))
                 reply = self._worker.recv()
-                if (message.guild.id in DISCORD_SERVER_PRIVACY) and DISCORD_REMOVE_PHRASE:
+                if (message.guild.id in DISCORD_SERVER_PRIVACY or message.guild is None) and DISCORD_REMOVE_PHRASE:
                     reply = re.sub(DISCORD_BLOCK_PRIVACY, '', reply, flags=re.IGNORECASE)
                     reply = re.sub(r' +', ' ', reply)
                     reply = reply.strip()
                 if reply.isspace() or reply == '':
-                    reply = "Huh?"
+                    reply = "What?"
                 self._logger.debug("Reply: %s" % reply)
                 if reply is not None:
                     await message.channel.send(reply)
@@ -113,7 +111,7 @@ class DiscordClient(discord.Client):
                     reply = re.sub(r' +', ' ', reply)
                     reply = reply.strip()
                 if reply.isspace() or reply == '':
-                    reply = "Huh?"
+                    reply = "What?"
                 self._logger.debug("Reply: %s" % reply)
                 if reply is not None:
                     await message.channel.send(reply)
@@ -129,7 +127,7 @@ class DiscordClient(discord.Client):
                 reply = re.sub(r' +', ' ', reply)
                 reply = reply.strip()
             if reply.isspace() or reply == '':
-                reply = "Huh?"
+                reply = "What?"
             self._logger.debug("Reply: %s" % reply)
             if reply is not None:
                 await message.channel.send(reply)
