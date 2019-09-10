@@ -35,7 +35,7 @@ class ConnectorReplyGenerator(object):
 
         subjects = []
         for token in doc:
-            if(token.text in ignore_topics):
+            if token.text in ignore_topics:
                 continue
             markov_word = self._markov_model.select(token.text)
             if markov_word is not None:
