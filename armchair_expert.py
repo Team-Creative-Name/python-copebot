@@ -257,12 +257,8 @@ class ArmchairExpert(object):
         structure_data, structure_labels = structure_preprocessor.get_preprocessed_data()
         if len(structure_data) > 0:
 
-            # This works well enough!
-            epochs = 60 - int(len(structure_data) / (125000/27))
-
-            # Floor / Ceilling for training
-            epochs = max(5, epochs)
-            epochs = min(60, epochs)
+            # I don't know anymore
+            epochs = 8
 
             self._structure_scheduler.train(structure_data, structure_labels, epochs=epochs)
             self._structure_scheduler.save(STRUCTURE_MODEL_PATH)
