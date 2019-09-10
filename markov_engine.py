@@ -223,7 +223,7 @@ class MarkovWord(object):
                 dist_space_index = (dist_idx - MARKOV_WINDOW_SIZE) + idx_in_sentence
 
                 # Bounds check
-                if not (dist_space_index >= 0 and dist_space_index < sentence_length):
+                if not (0 <= dist_space_index < sentence_length):
                     continue
 
                 distance_distributions[neighbor_idx][dist_space_index] = dist_value
@@ -407,7 +407,7 @@ class MarkovGenerator(object):
                         word_break = True
                         break
 
-                    # Don't assign sam subject twice pers sentence
+                    # Don't assign same subject twice per sentence
                     if subject.text in subjects_assigned:
                         continue
 
