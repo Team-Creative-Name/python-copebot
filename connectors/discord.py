@@ -46,9 +46,11 @@ class DiscordClient(discord.Client):
 
     async def on_ready(self):
         self._ready = True
+        game = discord.Game("Copebot's Bizarre Adventure")
         self._logger.info(
             "Server join URL: https://discordapp.com/oauth2/authorize?&client_id=%d&scope=bot&permissions=0"
             % DISCORD_CLIENT_ID)
+        await self.change_presence(status=discord.Status.online, activity=game)
 
     async def on_message(self, message: discord.Message):
 
@@ -115,7 +117,7 @@ class DiscordClient(discord.Client):
                 self._logger.debug("Reply: %s" % reply)
                 if reply is not None:
                     await message.channel.send(reply)
-                return
+            return
 
         # Reply to private messages
         if message.guild is None:
