@@ -56,6 +56,10 @@ class DiscordClient(discord.Client):
         if str(message.author) == DISCORD_USERNAME:
             return
 
+        # Ignore empty messages
+        if str(message.content) == '':
+            return
+
         # Ignore certain users
         if str(message.author) in DISCORD_IGNORE_USER:
             return
