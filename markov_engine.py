@@ -9,7 +9,7 @@ from typing import Optional, List
 import numpy as np
 from spacy.tokens import Doc, Span, Token
 
-from config.ml import MARKOV_WINDOW_SIZE, MARKOV_GENERATION_WEIGHT_COUNT, MARKOV_GENERATION_WEIGHT_RATING, \
+from config.ai_config import MARKOV_WINDOW_SIZE, MARKOV_GENERATION_WEIGHT_COUNT, MARKOV_GENERATION_WEIGHT_RATING, \
     MARKOV_GENERATE_SUBJECT_POS_PRIORITY, MARKOV_GENERATE_SUBJECT_MAX, \
     CAPITALIZATION_COMPOUND_RULES, MARKOV_MODEL_TEMPERATURE
 from common.ml import one_hot, temp
