@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from config.armchair_expert import IMPORT_TRAINING_DB_PATH
+from config.db_config import IMPORT_TRAINING_DB_PATH
 from storage.storage_common import TrainingDataManager
 
 Base = declarative_base()
