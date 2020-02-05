@@ -274,6 +274,7 @@ def signal_handler(sig, frame):
 
 
 if __name__ == '__main__':
+    sys.setrecursionlimit(2000)
     signal.signal(signal.SIGINT, signal_handler)
     logging.basicConfig(level=ARMCHAIR_EXPERT_LOGLEVEL)
 
