@@ -30,7 +30,24 @@ def create_nlp_instance():
 			merged_hashtag = False
 		return doc
 
+	def discord_emote_pipe(doc):
+		merged_emote = False
+		while True:
+			for token_index, token in enumerate(doc):
+				if token.text == "<":
+					if doc[token_index + 1].text == ":":
+						start_index = token.idx
+						end_index = start_index + len(doc[token_index + 1].text) + 1
+						if doc.merge(start_index, end_index) is not None:
+							merged_emote = True
+							break
+			if not merged_emote:
+				break
+			merged_emote = False
+		return doc
+
 	nlp.add_pipe(hashtag_pipe)
+	nlp.add_pipe(discord_emote_pipe)
 	return nlp
 
 
