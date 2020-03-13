@@ -99,3 +99,5 @@ lines.db-journal
 /private/
 weights/markov.json.zlib
 weights/structure-model.h5
+requirements.txt
+docker
