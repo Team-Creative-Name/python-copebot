@@ -1,0 +1,12 @@
+# folders
+venv
+scripts
+.git
+.idea
+docker
+
+# files
+.gitattributes
+.gitignore
+LICENSE
+README*
