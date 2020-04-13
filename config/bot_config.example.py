@@ -6,36 +6,57 @@ class DiscordApiCredentials(object):
 # --- "User" Stuff Section ---
 # ----------------------------
 
-DISCORD_CLIENT_ID = 12345678901234567890
-DISCORD_TOKEN = ''
+# Discord Application ID
+CLIENT_ID = 123456789012345678
 
-DISCORD_CREDENTIALS = DiscordApiCredentials(token=DISCORD_TOKEN)
+# Bot token string
+BOT_TOKEN = 'Insert token here'
 
-DISCORD_USERNAME = 'SomeBot#1234'
+DISCORD_CREDENTIALS = DiscordApiCredentials(token=BOT_TOKEN)
+
+# Bot username string (in the form 'Username#1111')
+BOT_USERNAME = 'Username#1111'
+
+# Bot user ID
+SELF_USER_ID = 123456789012345678
 
 # Learn from all servers and channels
-DISCORD_LEARN_FROM_ALL = False
+LEARN_FROM_ALL = True
 
-# Don't learn from any of these channels
-DISCORD_LEARN_CHANNEL_EXCEPTIONS = []
+# Don't learn from any of these channels (by channel id)
+LEARN_CHANNEL_EXCEPTIONS = []
 
 # Learn from direct messages
-DISCORD_LEARN_FROM_DIRECT_MESSAGE = False
+LEARN_FROM_DIRECT_MESSAGE = True
 
 # Always learn from a specific user no matter what other flags are set
 # This should be set to a string containing a username like "SomeGuy#1234"
-DISCORD_LEARN_FROM_USER = None
+ALWAYS_LEARN_FROM_USER = None
 
-# Post random messages in the following servers
-DISCORD_RANDOM_SERVER = []
+# Randomly post messages in these servers (by server id)
+RANDOM_MESSAGE_SERVER_ID = []
 
-# Ignore the following users
-DISCORD_IGNORE_USER = []
+# Allows certain words to be posted in these servers, but not in servers that are not listed on this list
+# (useful for privacy) (by server id)
+PRIVATE_SERVER_ID = []
+
+# Ignore the following users (use user strings, like 'Username#1111')
+IGNORE_USERS = []
+
+# Block the following from being posted and captured everywhere (using regular expressions)
+BLOCK_PHRASE_ALL = (r'')
+
+# Block the following to be posted on servers not in PRIVATE_SERVER_ID
+BLOCK_PHRASE_PRIVACY = (r'()')
 
 # --- Technical Stuff Section ---
 # -------------------------------
 
-DISCORD_REMOVE_URL = True
+# Removes phrases in BLOCK_PHRASE_ALL and BLOCK_PHRASE_PRIVACY
+# WARNING! IT IS RECOMMENDED THAT YOU KEEP THIS AS IS FOR YOUR PRIVACY UNLESS YOU DON'T CARE
+DO_REMOVE_PHRASE = True
+
+DO_REMOVE_URL = True
 
 # Store training data here
-DISCORD_TRAINING_DB_PATH = 'db/discord.db'
+TRAINING_DB_PATH = 'db/discord.db'
