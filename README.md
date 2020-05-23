@@ -1,6 +1,19 @@
 # python-copebot
 A machine learning chatbot based off of csvance's armchair-expert (https://github.com/csvance/armchair-expert)
 
+# Windows Setup
+currently, Copebot Python Edition has been tested to work with the following dependencies:
+- Python 3.7.7 [https://www.python.org/downloads/release/python-377/](LINK)
+- Cuda 10.0.130 [https://developer.nvidia.com/cuda-10.0-download-archive](LINK)
+- Cudnn v7.6.5.32 for Cuda 10 [https://developer.nvidia.com/rdp/cudnn-download#a-collapse765-10](LINK)
+
+After installing these, use pip to install [https://gist.github.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7](The requirements.txt) via the command ``pip install --no-cache-dir -r requirements.txt``
+
+Finally, install spacy with the command ``python -m spacy download en_core_web_sm``
+
+You should now be able to run copbot by double clicking the copebot_python_edition.py file
+
+
 ## License
 The source code in this repository is licenced under the [AGPL-3.0 license](LICENSE), with portions code licensed under the MIT License, which is as follows:
 ```
