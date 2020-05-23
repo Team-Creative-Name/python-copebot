@@ -7,7 +7,7 @@ Currently, Copebot Python Edition has been tested to work with the following dep
 - Cuda 10.0.130 [LINK](https://developer.nvidia.com/cuda-10.0-download-archive)
 - Cudnn v7.6.5.32 for Cuda 10 [LINK](https://developer.nvidia.com/rdp/cudnn-download#a-collapse765-10)
 
-After installing these, use pip to install [requirements.txt](https://gist.github.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7) via the command ``pip install --no-cache-dir -r requirements.txt``
+After installing these, use pip to install [requirements.txt](https://gist.githubusercontent.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7/raw/c7e354204dcaa59f458b8beff5f24f460d9632bb/requirements.txt) via the command ``pip install --no-cache-dir -r requirements.txt``
 
 Finally, install spacy with the command ``python -m spacy download en_core_web_sm``
 
