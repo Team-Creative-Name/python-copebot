@@ -2,7 +2,7 @@
 A machine learning chatbot based off of csvance's armchair-expert (https://github.com/csvance/armchair-expert)
 
 # Windows Setup
-currently, Copebot Python Edition has been tested to work with the following dependencies:
+Currently, Copebot Python Edition has been tested to work with the following dependencies:
 - Python 3.7.7 [https://www.python.org/downloads/release/python-377/](LINK)
 - Cuda 10.0.130 [https://developer.nvidia.com/cuda-10.0-download-archive](LINK)
 - Cudnn v7.6.5.32 for Cuda 10 [https://developer.nvidia.com/rdp/cudnn-download#a-collapse765-10](LINK)
