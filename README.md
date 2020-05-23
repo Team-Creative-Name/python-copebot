@@ -3,11 +3,11 @@ A machine learning chatbot based off of csvance's armchair-expert (https://githu
 
 # Windows Setup
 Currently, Copebot Python Edition has been tested to work with the following dependencies:
-- Python 3.7.7 [https://www.python.org/downloads/release/python-377/](LINK)
-- Cuda 10.0.130 [https://developer.nvidia.com/cuda-10.0-download-archive](LINK)
-- Cudnn v7.6.5.32 for Cuda 10 [https://developer.nvidia.com/rdp/cudnn-download#a-collapse765-10](LINK)
+- Python 3.7.7 [LINK](https://www.python.org/downloads/release/python-377/)
+- Cuda 10.0.130 [LINK](https://developer.nvidia.com/cuda-10.0-download-archive)
+- Cudnn v7.6.5.32 for Cuda 10 [LINK](https://developer.nvidia.com/rdp/cudnn-download#a-collapse765-10)
 
-After installing these, use pip to install [https://gist.github.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7](The requirements.txt) via the command ``pip install --no-cache-dir -r requirements.txt``
+After installing these, use pip to install [requirements.txt](https://gist.github.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7) via the command ``pip install --no-cache-dir -r requirements.txt``
 
 Finally, install spacy with the command ``python -m spacy download en_core_web_sm``
 
