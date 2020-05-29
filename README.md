@@ -13,6 +13,9 @@ Finally, install spacy with the command ``python -m spacy download en_core_web_s
 
 You should now be able to run copbot by double clicking the copebot_python_edition.py file
 
+\*NOTE: If you have multiple versions of python installed on your system and python 3.7 is not your default, you can run copebot with the correct version of python using the [python launcher](https://docs.python.org/3/using/windows.html#launcher). CD into the same folder as the .py file and run   
+`py -3.7 copebot_python_edition.py`
+
 
 ## License
 The source code in this repository is licenced under the [AGPL-3.0 license](LICENSE), with portions code licensed under the MIT License, which is as follows:
