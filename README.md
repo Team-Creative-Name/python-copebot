@@ -11,10 +11,25 @@ After installing these, use pip to install [requirements.txt](https://gist.githu
 
 Finally, install spacy with the command ``python -m spacy download en_core_web_sm``
 
+Now that all of the requirements are installed, add your discord bot information to the bot_config.py file under /config
+
 You should now be able to run copbot by double clicking the copebot_python_edition.py file
 
 \*NOTE: If you have multiple versions of python installed on your system and python 3.7 is not your default, you can run copebot with the correct version of python using the [python launcher](https://docs.python.org/3/using/windows.html#launcher). CD into the same folder as the .py file and run   
 `py -3.7 copebot_python_edition.py`
+
+# Mac OS Setup (Note: No GPU Support)
+Currently, Copebot Python Edition requires Python 3.7.7 [LINK](https://www.python.org/downloads/release/python-377/)
+
+After installing python, use pip to install [requirements.txt](https://gist.githubusercontent.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7/raw/c7e354204dcaa59f458b8beff5f24f460d9632bb/requirements.txt) via the command ``pip3 install --no-cache-dir -r requirements.txt``
+
+Finally, install spacy with the command ``python3 -m spacy download en_core_web_sm``
+
+Now that all of the requirements are installed, add your discord bot information to the bot_config.py file under /config
+   
+   Next, set "USE_GPU" to false in ai_config.py
+
+You should now be able to cd into the copebot folder and launch it via the command `python3 copebot_python_edition.py`
 
 
 ## License
