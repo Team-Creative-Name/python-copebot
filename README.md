@@ -13,7 +13,7 @@ Finally, install spacy with the command ``python -m spacy download en_core_web_s
 
 Now that all of the requirements are installed, add your discord bot information to the bot_config.py file under /config
 
-You should now be able to run copbot by double clicking the copebot_python_edition.py file
+You should now be able to run copebot by double clicking the copebot_python_edition.py file
 
 \*NOTE: If you have multiple versions of python installed on your system and python 3.7 is not your default, you can run copebot with the correct version of python using the [python launcher](https://docs.python.org/3/using/windows.html#launcher). CD into the same folder as the .py file and run   
 `py -3.7 copebot_python_edition.py`
@@ -30,6 +30,8 @@ Now that all of the requirements are installed, add your discord bot information
    Next, set "USE_GPU" to false in ai_config.py
 
 You should now be able to cd into the copebot folder and launch it via the command `python3 copebot_python_edition.py`
+
+\*NOTE: NOTE: If you get a certificate error, run the 'install certificates.command' file located in the python folder in the applications folder. 
 
 
 ## License
