@@ -34,6 +34,10 @@ You should now be able to cd into the copebot folder and launch it via the comma
 \*NOTE: NOTE: If you get a certificate error, run the 'install certificates.command' file located in the python folder in the applications folder. 
 
 
+
+##Having issues running copebot?
+Try updating your version of discord.py to the latest version of discord.py. (check to make sure the version you are running is at least the same as the one listed in your systems requirements.txt file)
+
 ## License
 The source code in this repository is licenced under the [AGPL-3.0 license](LICENSE), with portions code licensed under the MIT License, which is as follows:
 ```
