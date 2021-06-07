@@ -21,7 +21,7 @@ You should now be able to run copebot by double clicking the copebot_python_edit
 # Mac OS Setup (Note: No GPU Support)
 Currently, Copebot Python Edition requires Python 3.7.7 [LINK](https://www.python.org/downloads/release/python-377/)
 
-After installing python, use pip to install [requirements.txt](https://gist.githubusercontent.com/collectioncard/ec212a338400b003a72a6ac7d75d3fc7/raw/c7e354204dcaa59f458b8beff5f24f460d9632bb/requirements.txt) via the command ``pip3 install --no-cache-dir -r requirements.txt``
+After installing python, use pip to install [requirements.txt](https://gist.githubusercontent.com/collectioncard/130e0fa0c626020e32611c1c8d18366a/raw/0f05c35f71b6641785b2f93c266803e382f378ac/requirements.txt) via the command ``pip3 install --no-cache-dir -r requirements.txt``
 
 Finally, install spacy with the command ``python3 -m spacy download en_core_web_sm``
 
